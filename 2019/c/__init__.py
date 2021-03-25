@@ -63,24 +63,28 @@ def exists():
     """aliejus.c egzistuoja."""
     #check50.log(lines)
     check50.exists("aliejus.c")
-#    check50.include("1.txt", "2.txt") 
+#    check50.include("1.txt", "2.txt")
 
 @check50.check(exists)
+
 def compiles():
     """aliejus.c kompiliuojasi be klaidų."""
     check50.c.compile("aliejus.c", lcs50=True)
     
 @check50.check(compiles)
+
 def exists_txt():
     """U1.txt egzistuoja."""
     check50.exists("U1.txt")
     
-@check50.check(compiles)
+@check50.check(exists_txt)
+
 def exists_reztxt():
     """U1rez.txt egzistuoja."""
     check50.exists("U1rez.txt")
         
-@check50.check(exists)
+@check50.check(exists_reztxt)
+
 def test0():
     """Informacija faile U1.txt yra surašyta teisingai"""
     if not lines:
@@ -93,7 +97,8 @@ def test0():
 #            raise check50.Failure("file U1.txt turi buti buti irasyti tik sveiki skaiciai")
 
 
-@check50.check(compiles)
+@check50.check(test0)
+
 def test1():
     """Teisingai paskaičiuoja aliejaus išpilstyma į esamus indus"""
     check50.run("> U1rez.txt").exit(0)
@@ -108,7 +113,8 @@ def test1():
             else:
                 raise check50.Failure("Blogai suskaičiuotas ispilstytas aliejus")
             
-@check50.check(compiles)
+@check50.check(test1)
+
 def test2():
     """Teisingai paskaičiuoja aliejaus likutį"""
     check50.run("> U1rez.txt").exit(0)
@@ -121,7 +127,8 @@ def test2():
             if (str(aliejuNeispilstytas) != linesRez[3]):
                 raise check50.Failure("Blogai suskaičiuotas ispilstytas aliejus")                    
 
-@check50.check(test1)
+@check50.check(test2)
+
 def test3():
     """Teisingai paskaičiuoja nepanaudotų indų kiekį"""
     check50.run("> U1rez.txt").exit(0)
@@ -136,7 +143,8 @@ def test3():
             else:
                 raise check50.Failure("Blogai suskaičiuota kiek liko nepanaudotų indų")
                 
-@check50.check(test2)
+@check50.check(test3)
+
 def test4():
     """Teisingai paskaičiuoja reikiamų papildomų indų kiekį"""
     check50.run("> U1rez.txt").exit(0)
@@ -152,6 +160,7 @@ def test4():
                 raise check50.Failure("Blogai suskaičiuota kiek reikia papildomai indų likusiam aliejui išpilstyti")
                 
 @check50.check(test4)
+
 def test5():
     """Teisingai paskaičiuoja gautą pelną"""
     check50.run("> U1rez.txt").exit(0)
@@ -163,4 +172,5 @@ def test5():
         else:
             if (str(gautasPelnas) != linesRez[10]):
                 raise check50.Failure("Blogai suskaičiuoja gautą pelną")
-
+                
+@check50.check(test5)
