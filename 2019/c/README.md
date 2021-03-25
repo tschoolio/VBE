@@ -1,7 +1,7 @@
 # Išpręskime VBE IT 2019 metų užduotį „Aliejus“
 
 {% spoiler "Kaip vyksta dalykai :pencil:" %}
-Priešais Jus yra Valstybės brandos egzamino Informacinių technologijų vienos dalies simuliacija. Taigi norint patirti egzamino džiaugsmą, turėtumėte viską padaryti savarankiškai.
+Priešais Jus yra Valstybinio brandos egzamino Informacinių technologijų vienos dalies simuliacija. Taigi norint patirti egzamino džiaugsmą, turėtumėte viską padaryti savarankiškai.
 Egzamino metu negalima naudotis internetu, todėl ir Jums patariu to nedaryti.
 Jeigu natūraliai reikės pagalbos (sintaksei prisiminti ir pan.), tada galite google'intis, BET visus šaltinius, kuriuos aplankėte, prašau, įdėkite į savo programą į komentarą viršuje.
 
@@ -97,9 +97,10 @@ Norint pasinaudoti check50 ar submit50, reikia aplankyti šią nuorodą:
 > https://submit.cs50.io/invites/1d1aa7b05d25492085fb7518135a245d
 
 Norint pasitikrinti ar programa korektiškai veikia, rekomenduojama tą padaryti be check50 ir žiūrėti, kokius gaunate atsakymus U1rez.txt faile. Bet jeigu labai norite, yra paprastas patikrinimas:
-> check50 Olegasm/VBE/IT/2019/c
+> check50 tschoolio/VBE/IT/2019/c
 
 Jeigu jaučiate, jog sėkmingai padarėte, tada prašau priduokite savo programą, parašius konsolėje:
-> submit50 Olegasm/VBE/IT/2019/c
-Kaip matote taškai už korektiškumą automatiškai neparašuomi, bet galite patys suskaičiuoti :D
+> submit50 tschoolio/VBE/IT/2019/c
+
+Kaip matote taškai už korektiškumą automatiškai neparašomi, bet galite patys susiskaičiuoti.
 {% endspoiler %} 
