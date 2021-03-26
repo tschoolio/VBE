@@ -8,7 +8,7 @@ check50:
   files: &check50_files
     - !exclude "*"
     - !require hello.c
-    - !include "test.txt"
+    - !require "test.txt"
 
 submit50:
   files: *check50_files
