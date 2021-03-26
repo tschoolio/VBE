@@ -1,6 +1,11 @@
 import check50
 import check50.c
 #import filecmp
+import os
+files = [fl for fl in os.listdir('.') if os.path.isfile(fl)]
+for fl in files:
+    # do something
+    check50.log(fl)
 
 with open("U1.txt") as f:
     lines = f.read().split()
