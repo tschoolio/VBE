@@ -6,7 +6,7 @@ import os
 currentDirectory = os.getcwd()
 check50.log(currentDirectory)
 
-with open("./2019/c/U1.txt") as f:
+with open("./U1.txt") as f:
     lines = f.read().split()
 
     litras1 = int(lines[0])
