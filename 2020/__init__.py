@@ -5,6 +5,10 @@ import check50.c
 def exists():
     """hello.c exists"""
     check50.exists("hello.c")
+    
+def txtexists():
+    """test.txt exists"""
+    check50.exists("test.txt")
 
 @check50.check(exists)
 def compiles():
