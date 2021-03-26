@@ -29,9 +29,9 @@ def blah():
 @check50.check(txtexists)
 def content():
     with open('test.txt') as f2:
-    linesRez = f2.read().split()
-    if(len(linesRez) < 1):
-        raise check50.Failure("Faile test.txt nepakanka duomenų")
-    else:
-        if (str("testas") != linesRez[0]):
-            raise check50.Failure("Blogi duomenys")   
+        linesRez = f2.read().split()
+        if(len(linesRez) < 1):
+            raise check50.Failure("Faile test.txt nepakanka duomenų")
+        else:
+            if (str("testas") != linesRez[0]):
+                raise check50.Failure("Blogi duomenys")   
