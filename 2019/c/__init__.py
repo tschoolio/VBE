@@ -80,7 +80,7 @@ def exists_reztxt():
     """U1rez.txt egzistuoja."""
     check50.exists("U1rez.txt")
         
-@check50.check(exists)
+@check50.check(exists_txt)
 def test0():
     """Informacija faile U1.txt yra surašyta teisingai"""
     if not lines:
