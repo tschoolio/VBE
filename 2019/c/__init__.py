@@ -2,7 +2,7 @@ import check50
 import check50.c
 #import filecmp
 
-with open('U1.txt') as f:
+with open("U1.txt") as f:
     lines = f.read().split()
 
     litras1 = int(lines[0])
@@ -59,28 +59,11 @@ with open('U1.txt') as f:
         + (litras5ispilstyta + litras5Reikia) * litras5Kaina) - gamybosIslaidos)
     
 @check50.check()
-def exists():
-    """aliejus.c egzistuoja."""
-    #check50.log(lines)
-    check50.exists("aliejus.c")
-#    check50.include("1.txt", "2.txt") 
-
-@check50.check(exists)
 def compiles():
     """aliejus.c kompiliuojasi be klaidų."""
     check50.c.compile("aliejus.c", lcs50=True)
-    
-@check50.check(compiles)
-def exists_txt():
-    """U1.txt egzistuoja."""
-    check50.exists("U1.txt")
-    
-@check50.check(compiles)
-def exists_reztxt():
-    """U1rez.txt egzistuoja."""
-    check50.exists("U1rez.txt")
         
-@check50.check(exists_txt)
+@check50.check(compiles)
 def test0():
     """Informacija faile U1.txt yra surašyta teisingai"""
     if not lines:
@@ -121,7 +104,7 @@ def test2():
             if (str(aliejuNeispilstytas) != linesRez[3]):
                 raise check50.Failure("Blogai suskaičiuotas ispilstytas aliejus")                    
 
-@check50.check(test1)
+@check50.check(compiles)
 def test3():
     """Teisingai paskaičiuoja nepanaudotų indų kiekį"""
     check50.run("> U1rez.txt").exit(0)
@@ -136,7 +119,7 @@ def test3():
             else:
                 raise check50.Failure("Blogai suskaičiuota kiek liko nepanaudotų indų")
                 
-@check50.check(test2)
+@check50.check(compiles)
 def test4():
     """Teisingai paskaičiuoja reikiamų papildomų indų kiekį"""
     check50.run("> U1rez.txt").exit(0)
@@ -151,7 +134,7 @@ def test4():
             else:
                 raise check50.Failure("Blogai suskaičiuota kiek reikia papildomai indų likusiam aliejui išpilstyti")
                 
-@check50.check(test4)
+@check50.check(compiles)
 def test5():
     """Teisingai paskaičiuoja gautą pelną"""
     check50.run("> U1rez.txt").exit(0)
