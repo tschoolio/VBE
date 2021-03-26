@@ -1,6 +1,9 @@
 import check50
 import check50.c
 
+with open('test.txt') as f:
+    lines = f.read().split()
+
 @check50.check()
 def exists():
     """hello.c exists"""
@@ -10,6 +13,7 @@ def exists():
 def txtexists():
     """test.txt exists"""
     check50.exists("test.txt")
+    check50.log(lines)
 
 @check50.check(txtexists)
 def compiles():
