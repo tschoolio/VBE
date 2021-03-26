@@ -1,6 +1,10 @@
 import check50
 import check50.c
 #import filecmp
+import os
+
+currentDirectory = os.getcwd()
+check50.log(currentDirectory)
 
 with open("./2019/c/U1.txt") as f:
     lines = f.read().split()
