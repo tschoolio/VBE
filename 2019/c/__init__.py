@@ -2,6 +2,8 @@ import check50
 import check50.c
 #import filecmp
 import os
+
+
     
 @check50.check()
 def compiles():
@@ -11,8 +13,6 @@ def compiles():
 @check50.check(compiles)
 def test0():
     """Informacija faile U1.txt yra surašyta teisingai"""
-    currentDirectory = os.getcwd()
-    check50.log(currentDirectory)
     
     with open("U1.txt") as f:
         lines = f.read().split()
@@ -85,6 +85,63 @@ def test1():
     """Teisingai paskaičiuoja aliejaus išpilstyma į esamus indus"""
     check50.run("> U1rez.txt").exit(0)
     check50.run("./aliejus").exit(0)
+    
+    with open("U1.txt") as f:
+        lines = f.read().split()
+
+        litras1 = int(lines[0])
+        litras3 = int(lines[1])
+        litras5 = int(lines[2])
+
+        litras1Likutis = litras1
+        litras3Likutis = litras3
+        litras5Likutis = litras5
+
+        litras1Reikia = 0;
+        litras3Reikia = 0;
+        litras5Reikia = 0;
+
+        aliejusPradinis = int(lines[3])
+        aliejusLikutis = aliejusPradinis
+        aliejuNeispilstytas = 0
+
+        gamybosIslaidos = int(lines[4])
+
+        litras1Kaina = int(lines[5])
+        litras3Kaina = int(lines[6])
+        litras5Kaina = int(lines[7])
+
+        gautasPelnas = 0
+
+        while(litras5Likutis != 0 and aliejusLikutis >= 5):
+            aliejusLikutis -= 5
+            litras5Likutis -= 1
+        while(litras3Likutis != 0 and aliejusLikutis >= 3):
+            aliejusLikutis -= 3
+            litras3Likutis -= 1
+        while(litras1Likutis != 0 and aliejusLikutis >= 1):
+            aliejusLikutis -= 1
+            litras1Likutis -= 1
+
+        litras1ispilstyta = litras1 - litras1Likutis
+        litras3ispilstyta = litras3 - litras3Likutis
+        litras5ispilstyta = litras5 - litras5Likutis
+        aliejuNeispilstytas = aliejusLikutis
+
+        while(aliejusLikutis >= 5):
+            litras5Reikia += 1
+            aliejusLikutis -= 5
+        while(aliejusLikutis >= 3):
+            litras3Reikia += 1
+            aliejusLikutis -= 3
+        while(aliejusLikutis >= 1):
+            litras1Reikia += 1
+            aliejusLikutis -= 1
+
+        gautasPelnas = (((litras1ispilstyta + litras1Reikia) * litras1Kaina
+            + (litras3ispilstyta + litras3Reikia) * litras3Kaina
+            + (litras5ispilstyta + litras5Reikia) * litras5Kaina) - gamybosIslaidos)
+    
     with open('U1rez.txt') as f1:
         linesRez = f1.read().split()
         if(len(linesRez) < 3):
@@ -100,6 +157,63 @@ def test2():
     """Teisingai paskaičiuoja aliejaus likutį"""
     check50.run("> U1rez.txt").exit(0)
     check50.run("./aliejus").exit(0)
+    
+    with open("U1.txt") as f:
+        lines = f.read().split()
+
+        litras1 = int(lines[0])
+        litras3 = int(lines[1])
+        litras5 = int(lines[2])
+
+        litras1Likutis = litras1
+        litras3Likutis = litras3
+        litras5Likutis = litras5
+
+        litras1Reikia = 0;
+        litras3Reikia = 0;
+        litras5Reikia = 0;
+
+        aliejusPradinis = int(lines[3])
+        aliejusLikutis = aliejusPradinis
+        aliejuNeispilstytas = 0
+
+        gamybosIslaidos = int(lines[4])
+
+        litras1Kaina = int(lines[5])
+        litras3Kaina = int(lines[6])
+        litras5Kaina = int(lines[7])
+
+        gautasPelnas = 0
+
+        while(litras5Likutis != 0 and aliejusLikutis >= 5):
+            aliejusLikutis -= 5
+            litras5Likutis -= 1
+        while(litras3Likutis != 0 and aliejusLikutis >= 3):
+            aliejusLikutis -= 3
+            litras3Likutis -= 1
+        while(litras1Likutis != 0 and aliejusLikutis >= 1):
+            aliejusLikutis -= 1
+            litras1Likutis -= 1
+
+        litras1ispilstyta = litras1 - litras1Likutis
+        litras3ispilstyta = litras3 - litras3Likutis
+        litras5ispilstyta = litras5 - litras5Likutis
+        aliejuNeispilstytas = aliejusLikutis
+
+        while(aliejusLikutis >= 5):
+            litras5Reikia += 1
+            aliejusLikutis -= 5
+        while(aliejusLikutis >= 3):
+            litras3Reikia += 1
+            aliejusLikutis -= 3
+        while(aliejusLikutis >= 1):
+            litras1Reikia += 1
+            aliejusLikutis -= 1
+
+        gautasPelnas = (((litras1ispilstyta + litras1Reikia) * litras1Kaina
+            + (litras3ispilstyta + litras3Reikia) * litras3Kaina
+            + (litras5ispilstyta + litras5Reikia) * litras5Kaina) - gamybosIslaidos)
+    
     with open('U1rez.txt') as f2:
         linesRez = f2.read().split()
         if(len(linesRez) < 4):
@@ -113,6 +227,63 @@ def test3():
     """Teisingai paskaičiuoja nepanaudotų indų kiekį"""
     check50.run("> U1rez.txt").exit(0)
     check50.run("./aliejus").exit(0)
+    
+    with open("U1.txt") as f:
+        lines = f.read().split()
+
+        litras1 = int(lines[0])
+        litras3 = int(lines[1])
+        litras5 = int(lines[2])
+
+        litras1Likutis = litras1
+        litras3Likutis = litras3
+        litras5Likutis = litras5
+
+        litras1Reikia = 0;
+        litras3Reikia = 0;
+        litras5Reikia = 0;
+
+        aliejusPradinis = int(lines[3])
+        aliejusLikutis = aliejusPradinis
+        aliejuNeispilstytas = 0
+
+        gamybosIslaidos = int(lines[4])
+
+        litras1Kaina = int(lines[5])
+        litras3Kaina = int(lines[6])
+        litras5Kaina = int(lines[7])
+
+        gautasPelnas = 0
+
+        while(litras5Likutis != 0 and aliejusLikutis >= 5):
+            aliejusLikutis -= 5
+            litras5Likutis -= 1
+        while(litras3Likutis != 0 and aliejusLikutis >= 3):
+            aliejusLikutis -= 3
+            litras3Likutis -= 1
+        while(litras1Likutis != 0 and aliejusLikutis >= 1):
+            aliejusLikutis -= 1
+            litras1Likutis -= 1
+
+        litras1ispilstyta = litras1 - litras1Likutis
+        litras3ispilstyta = litras3 - litras3Likutis
+        litras5ispilstyta = litras5 - litras5Likutis
+        aliejuNeispilstytas = aliejusLikutis
+
+        while(aliejusLikutis >= 5):
+            litras5Reikia += 1
+            aliejusLikutis -= 5
+        while(aliejusLikutis >= 3):
+            litras3Reikia += 1
+            aliejusLikutis -= 3
+        while(aliejusLikutis >= 1):
+            litras1Reikia += 1
+            aliejusLikutis -= 1
+
+        gautasPelnas = (((litras1ispilstyta + litras1Reikia) * litras1Kaina
+            + (litras3ispilstyta + litras3Reikia) * litras3Kaina
+            + (litras5ispilstyta + litras5Reikia) * litras5Kaina) - gamybosIslaidos)
+    
     with open('U1rez.txt') as f1:
         linesRez = f1.read().split()
         if(len(linesRez) < 7):
@@ -128,6 +299,64 @@ def test4():
     """Teisingai paskaičiuoja reikiamų papildomų indų kiekį"""
     check50.run("> U1rez.txt").exit(0)
     check50.run("./aliejus").exit(0)
+    
+    with open("U1.txt") as f:
+        lines = f.read().split()
+
+        litras1 = int(lines[0])
+        litras3 = int(lines[1])
+        litras5 = int(lines[2])
+
+        litras1Likutis = litras1
+        litras3Likutis = litras3
+        litras5Likutis = litras5
+
+        litras1Reikia = 0;
+        litras3Reikia = 0;
+        litras5Reikia = 0;
+
+        aliejusPradinis = int(lines[3])
+        aliejusLikutis = aliejusPradinis
+        aliejuNeispilstytas = 0
+
+        gamybosIslaidos = int(lines[4])
+
+        litras1Kaina = int(lines[5])
+        litras3Kaina = int(lines[6])
+        litras5Kaina = int(lines[7])
+
+        gautasPelnas = 0
+
+        while(litras5Likutis != 0 and aliejusLikutis >= 5):
+            aliejusLikutis -= 5
+            litras5Likutis -= 1
+        while(litras3Likutis != 0 and aliejusLikutis >= 3):
+            aliejusLikutis -= 3
+            litras3Likutis -= 1
+        while(litras1Likutis != 0 and aliejusLikutis >= 1):
+            aliejusLikutis -= 1
+            litras1Likutis -= 1
+
+        litras1ispilstyta = litras1 - litras1Likutis
+        litras3ispilstyta = litras3 - litras3Likutis
+        litras5ispilstyta = litras5 - litras5Likutis
+        aliejuNeispilstytas = aliejusLikutis
+
+        while(aliejusLikutis >= 5):
+            litras5Reikia += 1
+            aliejusLikutis -= 5
+        while(aliejusLikutis >= 3):
+            litras3Reikia += 1
+            aliejusLikutis -= 3
+        while(aliejusLikutis >= 1):
+            litras1Reikia += 1
+            aliejusLikutis -= 1
+
+        gautasPelnas = (((litras1ispilstyta + litras1Reikia) * litras1Kaina
+            + (litras3ispilstyta + litras3Reikia) * litras3Kaina
+            + (litras5ispilstyta + litras5Reikia) * litras5Kaina) - gamybosIslaidos)
+    
+    
     with open('U1rez.txt') as f1:
         linesRez = f1.read().split()
         if(len(linesRez) < 10):
@@ -143,6 +372,63 @@ def test5():
     """Teisingai paskaičiuoja gautą pelną"""
     check50.run("> U1rez.txt").exit(0)
     check50.run("./aliejus").exit(0)
+    
+    with open("U1.txt") as f:
+        lines = f.read().split()
+
+        litras1 = int(lines[0])
+        litras3 = int(lines[1])
+        litras5 = int(lines[2])
+
+        litras1Likutis = litras1
+        litras3Likutis = litras3
+        litras5Likutis = litras5
+
+        litras1Reikia = 0;
+        litras3Reikia = 0;
+        litras5Reikia = 0;
+
+        aliejusPradinis = int(lines[3])
+        aliejusLikutis = aliejusPradinis
+        aliejuNeispilstytas = 0
+
+        gamybosIslaidos = int(lines[4])
+
+        litras1Kaina = int(lines[5])
+        litras3Kaina = int(lines[6])
+        litras5Kaina = int(lines[7])
+
+        gautasPelnas = 0
+
+        while(litras5Likutis != 0 and aliejusLikutis >= 5):
+            aliejusLikutis -= 5
+            litras5Likutis -= 1
+        while(litras3Likutis != 0 and aliejusLikutis >= 3):
+            aliejusLikutis -= 3
+            litras3Likutis -= 1
+        while(litras1Likutis != 0 and aliejusLikutis >= 1):
+            aliejusLikutis -= 1
+            litras1Likutis -= 1
+
+        litras1ispilstyta = litras1 - litras1Likutis
+        litras3ispilstyta = litras3 - litras3Likutis
+        litras5ispilstyta = litras5 - litras5Likutis
+        aliejuNeispilstytas = aliejusLikutis
+
+        while(aliejusLikutis >= 5):
+            litras5Reikia += 1
+            aliejusLikutis -= 5
+        while(aliejusLikutis >= 3):
+            litras3Reikia += 1
+            aliejusLikutis -= 3
+        while(aliejusLikutis >= 1):
+            litras1Reikia += 1
+            aliejusLikutis -= 1
+
+        gautasPelnas = (((litras1ispilstyta + litras1Reikia) * litras1Kaina
+            + (litras3ispilstyta + litras3Reikia) * litras3Kaina
+            + (litras5ispilstyta + litras5Reikia) * litras5Kaina) - gamybosIslaidos)
+    
     with open('U1rez.txt') as f1:
         linesRez = f1.read().split()
         if(len(linesRez) < 11):
